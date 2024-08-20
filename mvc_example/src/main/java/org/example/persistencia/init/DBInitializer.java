@@ -7,10 +7,12 @@ import org.example.persistencia.model.Company;
 import org.example.persistencia.model.Division;
 import org.example.persistencia.model.Person;
 import org.example.persistencia.model.Role;
+import org.example.persistencia.model.Conductor;
 import org.example.persistencia.repository.CompanyRepository;
 import org.example.persistencia.repository.DivisionRepository;
 import org.example.persistencia.repository.PersonRepository;
 import org.example.persistencia.repository.RoleRepository;
+import org.example.persistencia.repository.ConductorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -26,9 +28,15 @@ public class DBInitializer implements CommandLineRunner {
     private DivisionRepository divisionRepository;
     @Autowired
     private RoleRepository roleRepository;
+    @Autowired
+    private ConductorRepository conductorRepository;
 
     @Override
     public void run(String... args) throws Exception {
+
+        Conductor conductor1 = new Conductor("Juan Pérez", "1234567890", "+123456789", "Calle Falsa 123");
+        Conductor conductor2 = new Conductor("María López", "0987654321", "+987654321", "Avenida Siempreviva 742");
+        Conductor conductor3 = new Conductor("Carlos García", "1122334455", "+1122334455", "Boulevard de los Sueños 1010");
         Person person1 = new Person("John", "Doe", "john.doe@example.com");
         Person person2 = new Person("Jane", "Doe", "jane.doe@example.com");
         Person person3 = new Person("Bob", "Smith", "bob.smith@example.com");
@@ -61,6 +69,7 @@ public class DBInitializer implements CommandLineRunner {
         Role role2 = new Role("Manager", person1, division2);
         Role role3 = new Role("Sales representative", person3, division3);
         Role role4 = new Role("PR", person4, division3);
+
 
         division1.setCompany(company1);
         company1.addDivision(division1);
@@ -124,6 +133,10 @@ public class DBInitializer implements CommandLineRunner {
         List<Division> divisions = Arrays.asList(division1, division2, division3, division4, division5, division6,
                 division7, division8, division9, division10);
         List<Role> roles = Arrays.asList(role1, role2, role3, role4);
+
+        List<Conductor> conductores = Arrays.asList(conductor1, conductor2, conductor3);
+
+        conductorRepository.saveAll(conductores);
         personRepository.saveAll(persons);
         divisionRepository.saveAll(divisions);
         companyRepository.saveAll(companies);

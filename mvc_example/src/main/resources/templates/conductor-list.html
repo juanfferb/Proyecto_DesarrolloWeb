@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+
+<body>
+    <div th:insert="~{fragments/menus.html :: menuPrincipal}"></div>
+
+    <h1>Conductoress</h1>
+    <a th:href="@{/conductores/search}">Buscar</a>
+
+    <table class="entity-list">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cédula</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr th:each="c : ${conductores}" th:if="${c.nombre}">
+                <td th:text="${c.nombre}"></td>
+                <td th:text="${c.cedula}"></td>
+                <td th:text="${c.telefono}"></td>
+                <td th:text="${c.direccion}"></td>
+                <td>
+                    <a th:href="@{/conductor/view/{id}(id=${c.id})}">Ver</a>
+                </td>
+                <td>
+                    <a th:href="@{/conductor/edit-form/{id}(id=${c.id})}">Editar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
