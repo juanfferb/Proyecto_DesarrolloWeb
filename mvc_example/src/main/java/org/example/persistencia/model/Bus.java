@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -30,11 +32,15 @@ public class Bus {
     private String modelo;
 
     @ManyToMany
-    private List<Conductor> conductoresAsignados = new ArrayList<>();
+    @JoinTable(
+        name = "conductor_bus",
+        joinColumns = @JoinColumn(name = "bus_id"),
+        inverseJoinColumns = @JoinColumn(name = "conductor_id")
+    )
+    private List<Conductor> conductores = new ArrayList<>(); 
 
     @OneToMany(mappedBy = "bus")
     private List<Asignacion> asignaciones = new ArrayList<>();
-
 
     public Bus() {
     }
@@ -69,11 +75,11 @@ public class Bus {
     }
 
     public List<Conductor> getConductoresAsignados() {
-        return conductoresAsignados;
+        return conductores;
     }
 
     public boolean addConductorAsignado(Conductor conductor) {
-        return conductoresAsignados.add(conductor);
+        return conductores.add(conductor);
     }
 
     public List<Asignacion> getAsignaciones() {

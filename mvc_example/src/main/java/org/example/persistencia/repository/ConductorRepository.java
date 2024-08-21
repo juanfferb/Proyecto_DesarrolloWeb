@@ -10,11 +10,11 @@ import org.springframework.data.repository.query.Param;
 // @Repository
 public interface ConductorRepository extends JpaRepository<Conductor, Long> {
     // https://www.baeldung.com/spring-data-derived-queries
-    List<Conductor> findAllByName(String text);
+    List<Conductor> findAllByNombre(String text);
 
-    List<Conductor> findAllByNameStartingWith(String text);
+    List<Conductor> findAllByNombreStartingWith(String text);
 
-    List<Conductor> findAllByNameStartingWithIgnoreCase(String text);
+    List<Conductor> findAllByNombreStartingWithIgnoreCase(String text);
 
     // https://www.baeldung.com/spring-data-jpa-query
     @Query("SELECT c FROM Conductor c WHERE c.nombre LIKE concat(:text, '%')")

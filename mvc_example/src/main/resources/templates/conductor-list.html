@@ -2,13 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+    <link rel="stylesheet" th:href="@{/css/styleProject.css}">
 </head>
 
 <body>
+    <div class="BarraNavegacion">
+        <ul>
+            <li><img src="https://julicastiblanco.wordpress.com/wp-content/uploads/2017/02/wordpress-biarticulado-01.png?w=1000" height="60px" alt="Logo"></li>
+            <li><p>Conductores</p></li>
+            <li><p>Rutas</p></li>
+            <li><p>Buses</p></li>
+        </ul>
+    </div>
     <div th:insert="~{fragments/menus.html :: menuPrincipal}"></div>
 
-    <h1>Conductoress</h1>
+    <h1>Conductores</h1>
     <a th:href="@{/conductores/search}">Buscar</a>
 
     <table class="entity-list">

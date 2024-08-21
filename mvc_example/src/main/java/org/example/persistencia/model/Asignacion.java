@@ -31,7 +31,7 @@ public class Asignacion {
 
     @Column(name = "dias_asignacion", nullable = false)
     @NotNull(message = "Los días de asignación no pueden ser nulos")
-    private String diasAsignacion; // Ejemplo: "Lunes, Martes, Miércoles, Jueves, Viernes"
+    private String diasAsignacion; 
 
     public Asignacion() {
     }
