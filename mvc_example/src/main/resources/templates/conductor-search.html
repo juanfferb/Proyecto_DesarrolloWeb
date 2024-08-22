@@ -16,9 +16,14 @@
     </div>
     <div th:insert="~{fragments/menus.html :: menuPrincipal}"></div>
 
-    <h1>Conductores</h1>
-    <a th:href="@{/conductor/search}">Buscar</a>
 
+    <form method="get" action="#" th:action="@{/conductor/search}">
+        <label for="searchText">Buscar por nombre</label>
+        <input type="text" id="searchText" name="searchText">
+        <button type="submit">Search</button>
+    </form>
+
+    <h1>conductores</h1>
     <table class="entity-list">
         <thead>
             <tr>

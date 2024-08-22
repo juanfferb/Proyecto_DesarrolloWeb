@@ -25,7 +25,7 @@ public class ConductorService {
     }
 
     public List<Conductor> buscarPorNombre(String textoBusqueda) {
-        return conductorRepository.findAllByNombre(textoBusqueda);
+        return conductorRepository.findAllByNombreStartingWith(textoBusqueda);
     }
 
 }

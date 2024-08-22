@@ -8,6 +8,27 @@
     z-index: 1000; /* Asegura que la barra esté por encima de otros elementos */
 }
 
+.BarraNavegacion a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: white; /* Color del texto de los enlaces */
+    display: block; /* Asegura que el enlace ocupe todo el espacio del contenedor */
+    padding: 14px 16px; /* Ajusta el padding para alinear el texto */
+}
+
+.BarraNavegacion a:hover,
+.BarraNavegacion a:focus,
+.BarraNavegacion a:active {
+    text-decoration: none; 
+    color: white; 
+    background-color: #000000; 
+}
+
+
+.BarraNavegacion a.active {
+    background-color: #333333; 
+    color: white; 
+}
+
 .BarraNavegacion ul {
     list-style-type: none; /* Elimina los puntos de la lista */
     margin: 0;

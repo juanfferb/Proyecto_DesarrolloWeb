@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/styleProject.css}">
+
+</head>
+
+<body>
+    <div class="BarraNavegacion">
+        <ul>
+            <li><img src="https://julicastiblanco.wordpress.com/wp-content/uploads/2017/02/wordpress-biarticulado-01.png?w=1000" height="60px" alt="Logo"></li>
+            <li><a th:href="@{/conductor/list}">Coordinador</a></li>
+            <li><p>Rutas</p></li>
+            <li><p>Buses</p></li>
+        </ul>
+    </div>
+    <h1>Conductor</h1>
+    <p th:text="|Nombre: ${conductor.nombre}|"></p>
+    <p th:text="|Cédula: ${conductor.cedula}|"></p>
+    <p th:text="|Teléfono: ${conductor.telefono}|"></p>
+    <p th:text="|Dirección: ${conductor.direccion}|"></p>
+    <a th:href="@{/conductor/list}">Volver</a>
+</body>
+
+</html>
