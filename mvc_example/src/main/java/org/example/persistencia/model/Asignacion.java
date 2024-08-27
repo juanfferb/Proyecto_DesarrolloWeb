@@ -31,16 +31,16 @@ public class Asignacion {
 
     @Column(name = "dias_asignacion", nullable = false)
     @NotNull(message = "Los días de asignación no pueden ser nulos")
-    private String diasAsignacion; 
+    private String dia; 
 
     public Asignacion() {
     }
 
-    public Asignacion(Conductor conductor, Bus bus, Ruta ruta, String diasAsignacion) {
+    public Asignacion(Conductor conductor, Bus bus, Ruta ruta, String dia) {
         this.conductor = conductor;
         this.bus = bus;
         this.ruta = ruta;
-        this.diasAsignacion = diasAsignacion;
+        this.dia = dia;
     }
 
     public Long getId() {
@@ -76,10 +76,10 @@ public class Asignacion {
     }
 
     public String getDiasAsignacion() {
-        return diasAsignacion;
+        return dia;
     }
 
-    public void setDiasAsignacion(String diasAsignacion) {
-        this.diasAsignacion = diasAsignacion;
+    public void setDia(String dia) {
+        this.dia = dia;
     }
 }
