@@ -14,31 +14,42 @@
             <li><p>Buses</p></li>
         </ul>
     </div>
+    
     <div class="formcontainer">
-        <h1>Conductor</h1>
+        <h1>Editar Conductor</h1>
         <form action="#" th:action="@{/conductor/save}" th:object="${conductor}" method="post">
             <input type="hidden" th:field="*{id}" id="id">
-            <label for="conductorNombre">Nombre: </label>
-            <input type="text" th:field="*{nombre}" id="conductorNombre">
-            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
-                th:class="${#fields.hasErrors('nombre')} ? 'error' : ''"></span>
-            <label for="conductorCedula">Cédula: </label>
-            <input type="text" th:field="*{cedula}" id="conductorCedula">
-            <span th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}"
-                th:class="${#fields.hasErrors('cedula')} ? 'error' : ''"></span>
-            <label for="conductorTelefono">Teléfono: </label>
-            <input type="text" th:field="*{telefono}" id="conductorTelefono">
-            <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"
-                th:class="${#fields.hasErrors('telefono')} ? 'telefono' : ''"></span>
-            <label for="conductorDireccion">Dirección: </label>
-            <input type="text" th:field="*{direccion}" id="conductorDireccion">
-            <span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"
-                th:class="${#fields.hasErrors('direccion')} ? 'direccion' : ''"></span>
-            <button type="submit">Enviar</button>
+
+            <div class="form-group">
+                <label for="conductorNombre">Nombre:</label>
+                <input type="text" th:field="*{nombre}" id="conductorNombre">
+                <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="conductorCedula">Cédula:</label>
+                <input type="text" th:field="*{cedula}" id="conductorCedula">
+                <span th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="conductorTelefono">Teléfono:</label>
+                <input type="text" th:field="*{telefono}" id="conductorTelefono">
+                <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="conductorDireccion">Dirección:</label>
+                <input type="text" th:field="*{direccion}" id="conductorDireccion">
+                <span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}" class="error"></span>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="save-button">Guardar</button>
+                <a class="cancel-button" th:href="@{/conductor/list}">Cancelar</a>
+            </div>
         </form>
     </div>
-
-    <a th:href="@{/conductor/list}">Cancelar</a>
 </body>
 
 </html>

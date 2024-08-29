@@ -23,7 +23,6 @@
     background-color: #000000; 
 }
 
-
 .BarraNavegacion a.active {
     background-color: #333333; 
     color: white; 
@@ -83,7 +82,7 @@
     justify-content: center; /* Centra horizontalmente el texto */
 }
 
-.TablaConductores{
+.TablaConductores {
     border-collapse: collapse;
     width: 50%;
     margin: 50px auto;
@@ -113,4 +112,142 @@ tr:hover {
     font-size: 1.5em;
     margin: .5em 0 .75em;
     text-align: center;
+}
+
+h2{
+    padding-top: 80px;
+    justify-content: center;
+}
+/* Estilos para la información del conductor */
+.conductor-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 50%;
+    margin: 20px auto; /* Centra el contenedor */
+}
+
+.profile-icon {
+    margin-right: 50px;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
+.conductor-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px; /* Tamaño de letra más grande para los detalles del conductor */
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.button-container1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.volver-button {
+    display: inline-block;
+    background-color: #ff0000; /* Fondo rojo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle efecto de botón */
+    transition: background-color 0.3s ease; /* Efecto de transición al pasar el mouse */
+    font-size: 18px; /* Tamaño de letra más grande para el botón */
+}
+
+.volver-button:hover {
+    background-color: #cc0000; /* Cambia el fondo al pasar el mouse */
+}
+
+
+.formcontainer {
+    margin: 20px auto;
+    padding-top: 50px;
+    padding: 20px;
+    max-width: 600px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.formcontainer h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group .error {
+    color: red;
+    font-size: 0.875em;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.save-button {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+    background-color: #cc0000;
+}
+
+.cancel-button {
+    display: inline-block;
+    background-color: #cccccc;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #999999;
 }
