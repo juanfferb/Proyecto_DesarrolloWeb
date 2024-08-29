@@ -1,6 +1,7 @@
 package org.example.persistencia.service;
 
 import org.example.persistencia.model.Asignacion;
+import org.example.persistencia.model.Conductor;
 import org.example.persistencia.repository.AsignacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,9 @@ public class AsignacionService {
 
     public List<Asignacion> getAsignacionesByConductorId(Long conductorId) {
         return asignacionRepository.findAsignacionesByConductorId(conductorId);
+    }
+
+    public Asignacion crearAsignacion(Asignacion asignacion) {
+        return asignacionRepository.save(asignacion);
     }
 }

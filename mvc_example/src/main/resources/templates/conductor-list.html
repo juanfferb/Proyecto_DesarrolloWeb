@@ -28,6 +28,10 @@
     <img class="conductores2" src="https://caracol.com.co/resizer/v2/QBE5JQQJPBH2LCU5B22YN7MBPU.png?auth=8a6ea4cb42db8b0ca359aebe31c6071d9abe0b8c21ad2a178a83dfcfd2365a00&width=650&height=488&quality=70&smart=true" alt="Conductores2">
     <a class="botonRojoBuscar" th:href="@{/conductor/search}">Buscar Conductor</a>
 
+    <p class="Texto1">Adicionalemnte puede crear un conductor nuevo con toda su infomación correspondiente</p>
+
+    <a class="botonRojoBuscar" th:href="@{/conductor/create}">Agregar</a>
+
     <p class="Texto2"> También como coordinador, puede evidenciar la información detallada de los conductores de 
         Transmilenio, a través de un listado completo que permite visualizar 
         todos los datos relevantes de cada conductor. Esta tabla ofrece la funcionalidad de editar 
@@ -47,6 +51,7 @@
                 <th>Asignaciones</th>
                 <th>Ver</th>
                 <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -65,7 +70,14 @@
                 <td>
                     <a class="botonRojo" th:href="@{/conductor/edit-form/{id}(id=${c.id})}">Editar</a>
                 </td>
+                <td>
+                    <form action="#" th:action="@{/conductor/delete/{id}(id=${c.id})}" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este conductor?');">
+                        <input type="hidden" name="_method" value="delete"/>
+                        <button type="submit" class="botonRojo">Eliminar</button>
+                    </form>
+                </td>
             </tr>
+            
         </tbody>
     </table>
 

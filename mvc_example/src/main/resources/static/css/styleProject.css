@@ -254,7 +254,7 @@ h2{
 
 .botonRojo {
     display: inline-block;
-    background-color: #ff0000; /* Fondo rojo */
+    background-color: #ff0000; 
     color: white; /* Color del texto */
     padding: 10px 20px; /* Espaciado interno */
     text-decoration: none; /* Sin subrayado */
@@ -267,7 +267,6 @@ h2{
     background-color: #cc0000; /* Cambia el fondo al pasar el mouse */
 }
 
-/* Centrar la tabla */
 .entity-list {
     border-collapse: collapse;
     width: 80%; /* Ancho de la tabla */
@@ -342,6 +341,7 @@ tr:hover {
     background-color: #ff0000; /* Fondo rojo */
     color: white; /* Texto blanco */
     padding: 10px 20px; /* Espaciado interno */
+    font-family: Arial, sans-serif; /* Fuente consistente */
     text-decoration: none; /* Sin subrayado */
     border-radius: 5px; /* Bordes redondeados */
     text-align: center; /* Centra el texto en el botón */
@@ -427,3 +427,15 @@ tr:hover {
     background-color: #cc0000; /* Cambia el color de fondo al pasar el mouse */
 }
 
+form button.botonRojo {
+    border: none; /* Asegura que no haya borde */
+    display: inline-block;
+    background-color: #ff0000; /* Fondo rojo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    font-family: Arial, sans-serif; /* Fuente consistente */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centra el texto en el botón */
+    margin: 5px; /* Espaciado externo */
+}

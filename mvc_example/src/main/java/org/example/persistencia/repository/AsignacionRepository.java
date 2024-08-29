@@ -14,4 +14,5 @@ public interface AsignacionRepository extends JpaRepository<Asignacion, Long> {
     // Método para encontrar asignaciones por ID de conductor
     @Query("SELECT a FROM Asignacion a WHERE a.conductor.id = :conductorId")
     List<Asignacion> findAsignacionesByConductorId(@Param("conductorId") Long conductorId);
+
 }

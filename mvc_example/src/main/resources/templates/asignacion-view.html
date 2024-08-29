@@ -15,8 +15,8 @@
             <li><p>Buses</p></li>
         </ul>
     </div>
-    <h1>Asignaciones</h1>
-    <table>
+    <h1 class="tituloConductores">Asignaciones Conductores</h1>
+    <table class="entity-list">
         <thead>
             <tr>
                 <th>ID</th>
@@ -34,6 +34,12 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="button-container1">
+        <a class="volver-button" th:href="@{/conductor/list}">Volver</a>
+        <a class="botonRojoBuscar" th:href="@{/asignacion/create}">Agregar</a>
+    </div>
+
 </body>
 
 </html>

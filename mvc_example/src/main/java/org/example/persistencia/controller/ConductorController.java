@@ -61,6 +61,30 @@ public class ConductorController {
         return new RedirectView("/conductor/list");
     }
 
+    @GetMapping(value = "/create")
+    public Object nuevoConductor(@Valid Conductor conductor, BindingResult result) {
+    if (result.hasErrors()) {
+        return new ModelAndView("conductor-create");
+    }
+    conductorService.crearConductor(conductor);
+    return new RedirectView("/conductor/list");
+    }
+
+    @PostMapping(value = "/create")
+    public Object crearConductor(@Valid Conductor conductor, BindingResult result) {
+    if (result.hasErrors()) {
+        return new ModelAndView("conductor-create");
+    }
+    conductorService.crearConductor(conductor);
+    return new RedirectView("/conductor/list");
+    }
+
+    @PostMapping("/delete/{id}")
+    public RedirectView eliminarConductor(@PathVariable("id") Long id) {
+        conductorService.eliminarConductor(id);
+        return new RedirectView("/conductor/list");
+    }
+
     @GetMapping("/search")
     public ModelAndView buscarConductores(@RequestParam(required = false) String searchText) {
         List<Conductor> conductores;
@@ -75,4 +99,6 @@ public class ConductorController {
         modelAndView.addObject("conductores", conductores);
         return modelAndView;
     }
+
+
 }
