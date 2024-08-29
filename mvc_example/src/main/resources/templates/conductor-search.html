@@ -16,14 +16,14 @@
     </div>
     <div th:insert="~{fragments/menus.html :: menuPrincipal}"></div>
 
+    <h1 class="tituloConductores">Conductores</h1>
 
-    <form method="get" action="#" th:action="@{/conductor/search}">
-        <label for="searchText">Buscar por nombre</label>
+    <form class="buscarConductorForm" method="get" action="#" th:action="@{/conductor/search}">
+        <label for="searchText">Buscar por nombre:</label>
         <input type="text" id="searchText" name="searchText">
-        <button type="submit">Search</button>
+        <button type="submit">Buscar</button>
     </form>
 
-    <h1>conductores</h1>
     <table class="entity-list">
         <thead>
             <tr>
@@ -43,14 +43,18 @@
                 <td th:text="${c.telefono}"></td>
                 <td th:text="${c.direccion}"></td>
                 <td>
-                    <a th:href="@{/conductor/view/{id}(id=${c.id})}">Ver</a>
+                    <a class="botonRojo" th:href="@{/conductor/view/{id}(id=${c.id})}">Ver</a>
                 </td>
                 <td>
-                    <a th:href="@{/conductor/edit-form/{id}(id=${c.id})}">Editar</a>
+                    <a class="botonRojo" th:href="@{/conductor/edit-form/{id}(id=${c.id})}">Editar</a>
                 </td>
             </tr>
         </tbody>
     </table>
+
+    <div class="button-container1">
+        <a class="volver-button" th:href="@{/conductor/list}">Volver</a>
+    </div>
 
 </body>
 
