@@ -38,5 +38,10 @@ public class AsignacionService {
                 .orElseThrow(() -> new IllegalArgumentException("Asignación no encontrada con ID: " + id));
         asignacionRepository.delete(asignacion);
     }
+
+    public Asignacion getAsignacionById(Long id) {
+    return asignacionRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Asignación no encontrada con ID: " + id));
+}
     
 }

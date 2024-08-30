@@ -85,14 +85,11 @@ public class AsignacionController {
         return "redirect:/asignacion/view/" + asignacion.getConductor().getId();
     }
 
-
-
-
-
     @PostMapping("/delete/{id}")
     public RedirectView eliminarAsignacion(@PathVariable("id") Long id) {
+        Asignacion asignacion = asignacionService.getAsignacionById(id);
+        Long conductorId = asignacion.getConductor().getId(); // Obtener el ID del conductor
         asignacionService.eliminarAsignacion(id);
-        return new RedirectView("/asignacion/view/");
+        return new RedirectView("/asignacion/view/" + conductorId); // Redirigir a la vista correcta
     }
-
 }
