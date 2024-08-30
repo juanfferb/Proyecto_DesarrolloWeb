@@ -43,47 +43,59 @@ public class AsignacionController {
     }
 
     
-    @GetMapping("/create")
-    public String crearAsignacion(@RequestParam("conductorId") Long conductorId, Model model) {
-        Asignacion asignacion = new Asignacion();
-        Conductor conductor = conductorService.recuperarConductor(conductorId); // Asegúrate de que este método existe y funciona
-        model.addAttribute("asignacion", asignacion);
-        model.addAttribute("conductor", conductor);
-        model.addAttribute("buses", busService.listarbuses());
-        model.addAttribute("rutas", rutaService.listarrutas());
-        model.addAttribute("conductorId", conductorId);
-        return "asignacion-create";
-    }
+    @GetMapping(value = "/create")
 
-    @PostMapping("/create")
-    public String createAsignacion(@ModelAttribute @Valid Asignacion asignacion, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            model.addAttribute("buses", busService.listarbuses());
-            model.addAttribute("rutas", rutaService.listarrutas());
-            return "asignacion-create";
-        }
+     public ModelAndView nuevoConductor() {
 
-        // Convertir el arreglo de checkboxes seleccionados en un string separado por comas
-        String diasSeleccionados = String.join(", ", asignacion.getDiasAsignacion());
-        asignacion.setDiasAsignacion(diasSeleccionados);
+         ModelAndView mav = new ModelAndView("asignacion-create");
 
-        // Validar que no haya cruce de días para el mismo conductor
-        if (asignacionService.existeConflictoDias(asignacion)) {
-            result.rejectValue("diasAsignacion", "error.asignacion", "Los días de asignación no deben cruzarse para el mismo conductor.");
-            return "asignacion-create";
-        }
+         Asignacion asignacion = new Asignacion();
 
-        // Validar que el bus no esté asignado a otro conductor en los mismos días
-        if (asignacionService.existeConflictoBus(asignacion)) {
-            result.rejectValue("bus", "error.asignacion", "El bus ya está asignado a otro conductor en los mismos días.");
-            return "asignacion-create";
-        }
+         // Obtener listas de buses y rutas
 
-        // Guardar la asignación
-        asignacionService.crearAsignacion(asignacion);
+         List<Bus> buses = busService.listarbuses();  // Asume que tienes un servicio para obtener buses
 
-        return "redirect:/asignacion/view/" + asignacion.getConductor().getId();
-    }
+         List<Ruta> rutas = rutaService.listarrutas(); // Asume que tienes un servicio para obtener rutas
+
+         mav.addObject("asignacion", asignacion);
+
+         mav.addObject("buses", buses);
+
+         mav.addObject("rutas", rutas);
+
+         return mav;
+
+     }
+
+     @PostMapping(value = "/create")
+
+     public Object crearConductor(@Valid Asignacion asignacion, BindingResult result) {
+
+         if (result.hasErrors()) {
+
+             // Obtener listas de buses y rutas nuevamente en caso de error
+
+             List<Bus> buses = busService.listarbuses();
+
+             List<Ruta> rutas = rutaService.listarrutas();
+
+             ModelAndView mav = new ModelAndView("asignacion-create");
+
+             mav.addObject("asignacion", asignacion);
+
+             mav.addObject("buses", buses);
+
+             mav.addObject("rutas", rutas);
+
+             return mav;
+
+         }
+
+         asignacionService.crearAsignacion(asignacion);
+
+         return new RedirectView("/asignacion/view");
+
+     }
 
     @PostMapping("/delete/{id}")
     public RedirectView eliminarAsignacion(@PathVariable("id") Long id) {
