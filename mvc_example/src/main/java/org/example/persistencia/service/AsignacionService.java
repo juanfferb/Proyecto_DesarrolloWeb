@@ -21,4 +21,22 @@ public class AsignacionService {
     public Asignacion crearAsignacion(Asignacion asignacion) {
         return asignacionRepository.save(asignacion);
     }
+
+    public boolean existeConflictoDias(Asignacion asignacion) {
+        // Implementar la lógica para verificar si los días de la nueva asignación
+        // se cruzan con otra asignación para el mismo conductor
+        return false; // Ejemplo, implementar la lógica real
+    }
+    
+    public boolean existeConflictoBus(Asignacion asignacion) {
+        // Implementar la lógica para verificar si el bus ya está asignado en los mismos días
+        return false; // Ejemplo, implementar la lógica real
+    }
+
+    public void eliminarAsignacion(Long id) {
+        Asignacion asignacion = asignacionRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Asignación no encontrada con ID: " + id));
+        asignacionRepository.delete(asignacion);
+    }
+    
 }

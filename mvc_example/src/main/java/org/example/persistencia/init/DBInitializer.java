@@ -84,39 +84,41 @@ public class DBInitializer implements CommandLineRunner {
         List<Ruta> rutas = Arrays.asList(ruta1, ruta2, ruta3, ruta4, ruta5, ruta6, ruta7, ruta8, ruta9, ruta10, ruta11, ruta12);
         rutaRepository.saveAll(rutas);
 
-        Asignacion asignacion1 = new Asignacion(conductor1, bus1, ruta1, "Lunes a Viernes");
-        Asignacion asignacion2 = new Asignacion(conductor1, bus2, ruta2, "Sábado y Domingo");
-        Asignacion asignacion3 = new Asignacion(conductor2, bus3, ruta3, "Lunes a Domingo");
-        Asignacion asignacion4 = new Asignacion(conductor2, bus1, ruta4, "Lunes a Sábado");
-        Asignacion asignacion5 = new Asignacion(conductor3, bus4, ruta5, "Miércoles a Viernes");
-        Asignacion asignacion6 = new Asignacion(conductor3, bus5, ruta6, "Martes y Jueves");
-        Asignacion asignacion7 = new Asignacion(conductor4, bus6, ruta7, "Lunes a Miércoles");
-        Asignacion asignacion8 = new Asignacion(conductor4, bus7, ruta8, "Sábado y Domingo");
-        Asignacion asignacion9 = new Asignacion(conductor5, bus8, ruta9, "Lunes a Domingo");
-        Asignacion asignacion10 = new Asignacion(conductor5, bus9, ruta10, "Viernes y Sábado");
-        Asignacion asignacion11 = new Asignacion(conductor6, bus10, ruta11, "Lunes a Domingo");
-        Asignacion asignacion12 = new Asignacion(conductor6, bus11, ruta12, "Martes a Sábado");
-        Asignacion asignacion13 = new Asignacion(conductor7, bus12, ruta1, "Jueves a Domingo");
-        Asignacion asignacion14 = new Asignacion(conductor7, bus2, ruta3, "Lunes a Viernes");
-        Asignacion asignacion15 = new Asignacion(conductor8, bus3, ruta4, "Sábado y Domingo");
-        Asignacion asignacion16 = new Asignacion(conductor8, bus5, ruta2, "Lunes a Miércoles");
-        Asignacion asignacion17 = new Asignacion(conductor9, bus6, ruta5, "Martes a Jueves");
-        Asignacion asignacion18 = new Asignacion(conductor9, bus7, ruta7, "Viernes a Domingo");
-        Asignacion asignacion19 = new Asignacion(conductor10, bus8, ruta9, "Lunes a Sábado");
-        Asignacion asignacion20 = new Asignacion(conductor10, bus10, ruta11, "Miércoles a Domingo");
-        Asignacion asignacion21 = new Asignacion(conductor11, bus1, ruta3, "Lunes a Viernes");
-        Asignacion asignacion22 = new Asignacion(conductor11, bus4, ruta5, "Sábado y Domingo");
-        Asignacion asignacion23 = new Asignacion(conductor12, bus2, ruta6, "Lunes a Domingo");
-        Asignacion asignacion24 = new Asignacion(conductor12, bus11, ruta8, "Martes a Sábado");
-        Asignacion asignacion25 = new Asignacion(conductor13, bus12, ruta12, "Jueves a Domingo");
-        Asignacion asignacion26 = new Asignacion(conductor13, bus13, ruta2, "Lunes a Domingo");
-        Asignacion asignacion27 = new Asignacion(conductor13, bus9, ruta4, "Martes a Jueves");
+        Asignacion asignacion1 = new Asignacion(conductor1, bus1, ruta1, "Lunes, Martes, Miércoles, Jueves, Viernes");
+        Asignacion asignacion2 = new Asignacion(conductor1, bus2, ruta2, "Sábado, Domingo");
+        Asignacion asignacion3 = new Asignacion(conductor2, bus3, ruta3, "Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo");
+        Asignacion asignacion4 = new Asignacion(conductor2, bus1, ruta4, "Lunes, Martes, Miércoles, Jueves, Viernes, Sábado");
+        Asignacion asignacion5 = new Asignacion(conductor3, bus4, ruta5, "Miércoles, Jueves, Viernes");
+        Asignacion asignacion6 = new Asignacion(conductor3, bus5, ruta6, "Martes, Jueves");
+        Asignacion asignacion7 = new Asignacion(conductor4, bus6, ruta7, "Lunes, Martes, Miércoles");
+        Asignacion asignacion8 = new Asignacion(conductor4, bus7, ruta8, "Sábado, Domingo");
+        Asignacion asignacion9 = new Asignacion(conductor5, bus8, ruta9, "Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo");
+        Asignacion asignacion10 = new Asignacion(conductor5, bus9, ruta10, "Viernes, Sábado");
+        Asignacion asignacion11 = new Asignacion(conductor6, bus10, ruta11, "Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo");
+        Asignacion asignacion12 = new Asignacion(conductor6, bus11, ruta12, "Martes, Miércoles, Jueves, Viernes, Sábado");
+        Asignacion asignacion13 = new Asignacion(conductor7, bus12, ruta1, "Jueves, Viernes, Sábado, Domingo");
+        Asignacion asignacion14 = new Asignacion(conductor7, bus2, ruta3, "Lunes, Martes, Miércoles, Jueves, Viernes");
+        Asignacion asignacion15 = new Asignacion(conductor8, bus3, ruta4, "Sábado, Domingo");
+        Asignacion asignacion16 = new Asignacion(conductor8, bus5, ruta2, "Lunes, Martes, Miércoles");
+        Asignacion asignacion17 = new Asignacion(conductor9, bus6, ruta5, "Martes, Miércoles, Jueves");
+        Asignacion asignacion18 = new Asignacion(conductor9, bus7, ruta7, "Viernes, Sábado, Domingo");
+        Asignacion asignacion19 = new Asignacion(conductor10, bus8, ruta9, "Lunes, Martes, Miércoles, Jueves, Viernes, Sábado");
+        Asignacion asignacion20 = new Asignacion(conductor10, bus10, ruta11, "Miércoles, Jueves, Viernes, Sábado, Domingo");
+        Asignacion asignacion21 = new Asignacion(conductor11, bus1, ruta3, "Lunes, Martes, Miércoles, Jueves, Viernes");
+        Asignacion asignacion22 = new Asignacion(conductor11, bus4, ruta5, "Sábado, Domingo");
+        Asignacion asignacion23 = new Asignacion(conductor12, bus2, ruta6, "Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo");
+        Asignacion asignacion24 = new Asignacion(conductor12, bus11, ruta8, "Martes, Miércoles, Jueves, Viernes, Sábado");
+        Asignacion asignacion25 = new Asignacion(conductor13, bus12, ruta12, "Jueves, Viernes, Sábado, Domingo");
+        Asignacion asignacion26 = new Asignacion(conductor13, bus13, ruta2, "Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo");
+        Asignacion asignacion27 = new Asignacion(conductor13, bus9, ruta4, "Martes, Miércoles, Jueves");
 
-        List<Asignacion> asignaciones = Arrays.asList(asignacion1, asignacion2, asignacion3, asignacion4, asignacion5,
+
+        List<Asignacion> listaAsignaciones = Arrays.asList(asignacion1, asignacion2, asignacion3, asignacion4, asignacion5,
                 asignacion6, asignacion7, asignacion8, asignacion9, asignacion10, asignacion11, asignacion12, asignacion13,
                 asignacion14, asignacion15, asignacion16, asignacion17, asignacion18, asignacion19, asignacion20,
                 asignacion21, asignacion22, asignacion23, asignacion24, asignacion25, asignacion26, asignacion27);
-        asignacionRepository.saveAll(asignaciones);
+        
+        asignacionRepository.saveAll(listaAsignaciones);
 
     }
 }

@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" th:href="@{/css/styleProject.css}">
-
 </head>
 
 <body>
@@ -23,6 +22,7 @@
                 <th>Bus</th>
                 <th>Ruta</th>
                 <th>Días de Asignación</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -31,15 +31,19 @@
                 <td th:text="${asignacion.bus.modelo}"></td>
                 <td th:text="${asignacion.ruta.nombre}"></td>
                 <td th:text="${asignacion.diasAsignacion}"></td>
+                <td>
+                    <form th:action="@{/asignacion/delete/{id}(id=${asignacion.id})}" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar esta asignación?');">
+                        <button type="submit" class="botonRojo">Eliminar</button>
+                    </form>
+                </td>                
             </tr>
         </tbody>
     </table>
 
     <div class="button-container1">
         <a class="volver-button" th:href="@{/conductor/list}">Volver</a>
-        <a class="botonRojoBuscar" th:href="@{/asignacion/create}">Agregar</a>
+        <a class="botonRojoBuscar" th:href="@{/asignacion/create(conductorId=${conductorId})}">Agregar</a>
     </div>
-
 </body>
 
 </html>
